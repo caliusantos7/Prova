@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a distancia em KM<input id="ipt_distancia" type="text"> <br>
+    Informe o volume de chamadas<input id="ipt_volume" type="text"> <br>
+    <button onclick="CalcularCusto()"> Calcular custo da viagem </button>
+    <div id="div_mens"></div>
+</body>
+</html>
+
+<script>
+    function CalcularCusto() {
+        var KM = Number(ipt_distancia.value)
+        var chamadas = Number(ipt_volume.value)
+        taxa_minima = chamadas * 0.07 + 1.50
+        var resultado = KM * taxa_minima
+        var valor_final_menos = resultado - 0.5 
+        var valor_final_mais = resultado + 0.50
+        if (chamadas <= 100) {
+            div_mens.innerHTML = `O volume da chamada é: ${chamadas}`   
+           
+            KM * taxa_minima 
+            div_mens.innerHTML = `A taxa mínima é ${resultado} `
+          
+            
+        }  if (chamadas < 20) {
+
+            div_mens.innerHTML = ` O valor final da corrida para o cliente será de R$ ${valor_final_menos}`
+        } else {
+            div_mens.innerHTML = `O valor descontado do motorista será ${resultado}, logo ele receberá um valor líquido de ${valor_final_mais}`
+        }
+    }
+</script>
